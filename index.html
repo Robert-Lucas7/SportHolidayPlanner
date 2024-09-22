@@ -1,9 +1,74 @@
 <!DOCTYPE html>
 <html>
-    <head>
 
-    </head>
-    <body>
-        
-    </body>
+<head>
+    <title>
+        Holiday Planner
+    </title>
+
+    <style>
+        body {
+            background-color: blueviolet;
+        }
+
+        h1 {
+            font-size: small;
+        }
+
+        .formClass {
+            width: 200px;
+        }
+
+        #destinationLabel {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Holiday Planner</h1>
+    <button id="connectToStravaBtn">Connect to strava</button>
+    <form class="formClass" onsubmit="handleSubmit(event)">
+        <label id="destinationLabel"> Destination:
+            <input type="text" name="destination" />
+        </label>
+        <label> Method of travel:
+            <select name="methodOfTravel" id="travelMethodSelect">
+                <option value="plane">Plane</option>
+                <option value="drive">Drive</option>
+            </select>
+        </label>
+        <label> Arrival Date:
+            <input type="date" name="arrivalDate" />
+        </label>
+        <label> Departure Date:
+            <input type="date" name="departureDate" />
+        </label>
+        <label> Holiday or Training Camp:
+            <select name="holidayOrTrainingCamp" id="holidayOrTrainingCampSelect">
+                <option value="holiday">Holiday</option>
+                <option value="trainingCamp">Training Camp</option>
+            </select>
+        </label>
+        <input type="submit" value="submit" />
+    </form>
+
+    <script>
+        document.getElementById('connectToStravaBtn').addEventListener('click', connectToStrava);
+
+        let stravaObject = {};
+
+        function connectToStrava(){
+            // 
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            const dataObject = Object.fromEntries(data.entries());
+            console.log(dataObject);
+        }
+    </script>
+</body>
+
 </html>
